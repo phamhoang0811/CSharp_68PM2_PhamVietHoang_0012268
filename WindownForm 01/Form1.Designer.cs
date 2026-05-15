@@ -39,7 +39,7 @@
             // txt_email
             // 
             this.txt_email.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_email.Location = new System.Drawing.Point(425, 145);
+            this.txt_email.Location = new System.Drawing.Point(346, 142);
             this.txt_email.Name = "txt_email";
             this.txt_email.Size = new System.Drawing.Size(263, 32);
             this.txt_email.TabIndex = 0;
@@ -47,7 +47,7 @@
             // txt_mssv
             // 
             this.txt_mssv.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_mssv.Location = new System.Drawing.Point(425, 204);
+            this.txt_mssv.Location = new System.Drawing.Point(346, 207);
             this.txt_mssv.Name = "txt_mssv";
             this.txt_mssv.PasswordChar = '*';
             this.txt_mssv.Size = new System.Drawing.Size(263, 32);
@@ -57,7 +57,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label1.Location = new System.Drawing.Point(200, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(806, 82);
@@ -70,9 +70,9 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(235, 148);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(166, 26);
+            this.label2.Size = new System.Drawing.Size(80, 26);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Email sinh viên:";
+            this.label2.Text = "Email :";
             this.label2.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
@@ -82,15 +82,15 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(235, 207);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(169, 26);
+            this.label3.Size = new System.Drawing.Size(69, 26);
             this.label3.TabIndex = 4;
-            this.label3.Text = "Mã số sinh viên:";
+            this.label3.Text = "Mssv:";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // txt_dangnhap
             // 
             this.txt_dangnhap.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.txt_dangnhap.Location = new System.Drawing.Point(476, 274);
+            this.txt_dangnhap.Location = new System.Drawing.Point(389, 274);
             this.txt_dangnhap.Name = "txt_dangnhap";
             this.txt_dangnhap.Size = new System.Drawing.Size(159, 55);
             this.txt_dangnhap.TabIndex = 5;

@@ -16,6 +16,7 @@ namespace WindownForm_01
         {
             InitializeComponent();
         }
+
         private void label2_Click(object sender, EventArgs e)
         {
 
@@ -28,12 +29,19 @@ namespace WindownForm_01
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string email = "hoang@huce.edu.vn";
-            string mssv = "0012268";
+           
+            string email = "hoang@gmail.com";
+            string mssv = "123456";
 
+          
             if (txt_email.Text == email && txt_mssv.Text == mssv)
             {
                 MessageBox.Show("Đăng nhập thành công!");
+
+
+                Qlsv qlsv = new Qlsv();
+                qlsv.Show();
+                this.Hide();
             }
             else
             {
