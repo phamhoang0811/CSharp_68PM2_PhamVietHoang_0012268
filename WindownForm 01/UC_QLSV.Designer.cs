@@ -1,13 +1,13 @@
 ﻿namespace WindownForm_01
 {
-    partial class Qlsv
+    partial class UC_QLSV
     {
-        /// <summary>
+        /// <summary> 
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
+        /// <summary> 
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
@@ -20,10 +20,10 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Component Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
+        /// <summary> 
+        /// Required method for Designer support - do not modify 
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
@@ -39,12 +39,6 @@
             this.lop = new System.Windows.Forms.Label();
             this.hoten = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.menuStrip2 = new System.Windows.Forms.MenuStrip();
-            this.menuStrip3 = new System.Windows.Forms.MenuStrip();
-            this.quanrLysSinhVieneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.quảnLýLớpHọcToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.đăngXuấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -64,7 +58,6 @@
             this.button8 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
-            this.menuStrip3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -81,9 +74,9 @@
             this.groupBox1.Controls.Add(this.lop);
             this.groupBox1.Controls.Add(this.hoten);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(0, 84);
+            this.groupBox1.Location = new System.Drawing.Point(0, 32);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(559, 566);
+            this.groupBox1.Size = new System.Drawing.Size(497, 566);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin sinh viên";
@@ -91,167 +84,101 @@
             // comboBox3
             // 
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(33, 454);
+            this.comboBox3.Location = new System.Drawing.Point(29, 454);
             this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(473, 28);
+            this.comboBox3.Size = new System.Drawing.Size(421, 28);
             this.comboBox3.TabIndex = 11;
-            this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
             // 
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(33, 355);
+            this.comboBox2.Location = new System.Drawing.Point(29, 355);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(473, 28);
+            this.comboBox2.Size = new System.Drawing.Size(421, 28);
             this.comboBox2.TabIndex = 8;
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(38, 431);
+            this.label2.Location = new System.Drawing.Point(34, 431);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(109, 20);
+            this.label2.Size = new System.Drawing.Size(103, 20);
             this.label2.TabIndex = 10;
             this.label2.Text = "Lớp môn học :";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // dateTimePicker2
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(33, 254);
+            this.dateTimePicker2.Location = new System.Drawing.Point(29, 254);
             this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(473, 26);
+            this.dateTimePicker2.Size = new System.Drawing.Size(421, 27);
             this.dateTimePicker2.TabIndex = 8;
-            this.dateTimePicker2.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
             // 
             // txt_name
             // 
-            this.txt_name.Location = new System.Drawing.Point(33, 155);
+            this.txt_name.Location = new System.Drawing.Point(29, 155);
             this.txt_name.Name = "txt_name";
-            this.txt_name.Size = new System.Drawing.Size(473, 26);
+            this.txt_name.Size = new System.Drawing.Size(421, 27);
             this.txt_name.TabIndex = 5;
-            this.txt_name.TextChanged += new System.EventHandler(this.txt_name_TextChanged);
             // 
             // txt_mssv
             // 
-            this.txt_mssv.Location = new System.Drawing.Point(33, 63);
+            this.txt_mssv.Location = new System.Drawing.Point(29, 63);
             this.txt_mssv.Name = "txt_mssv";
-            this.txt_mssv.Size = new System.Drawing.Size(473, 26);
+            this.txt_mssv.Size = new System.Drawing.Size(421, 27);
             this.txt_mssv.TabIndex = 4;
-            this.txt_mssv.TextChanged += new System.EventHandler(this.txt_mssv_TextChanged);
             // 
             // ngaysinh
             // 
             this.ngaysinh.AutoSize = true;
-            this.ngaysinh.Location = new System.Drawing.Point(37, 231);
+            this.ngaysinh.Location = new System.Drawing.Point(33, 231);
             this.ngaysinh.Name = "ngaysinh";
-            this.ngaysinh.Size = new System.Drawing.Size(82, 20);
+            this.ngaysinh.Size = new System.Drawing.Size(77, 20);
             this.ngaysinh.TabIndex = 3;
             this.ngaysinh.Text = "Ngày sinh:";
-            this.ngaysinh.Click += new System.EventHandler(this.ngaysinh_Click);
             // 
             // lop
             // 
             this.lop.AutoSize = true;
-            this.lop.Location = new System.Drawing.Point(37, 332);
+            this.lop.Location = new System.Drawing.Point(33, 332);
             this.lop.Name = "lop";
-            this.lop.Size = new System.Drawing.Size(71, 20);
+            this.lop.Size = new System.Drawing.Size(68, 20);
             this.lop.TabIndex = 2;
             this.lop.Text = "Giới tính:";
             // 
             // hoten
             // 
             this.hoten.AutoSize = true;
-            this.hoten.Location = new System.Drawing.Point(38, 132);
+            this.hoten.Location = new System.Drawing.Point(34, 132);
             this.hoten.Name = "hoten";
-            this.hoten.Size = new System.Drawing.Size(81, 20);
+            this.hoten.Size = new System.Drawing.Size(76, 20);
             this.hoten.TabIndex = 1;
             this.hoten.Text = "Họ và tên:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(38, 40);
+            this.label1.Location = new System.Drawing.Point(34, 40);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(121, 20);
+            this.label1.Size = new System.Drawing.Size(113, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Mã số sinh viên:";
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.menuStrip1.Location = new System.Drawing.Point(0, 57);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1412, 24);
-            this.menuStrip1.TabIndex = 4;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // menuStrip2
-            // 
-            this.menuStrip2.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
-            this.menuStrip2.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.menuStrip2.Location = new System.Drawing.Point(0, 33);
-            this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(1412, 24);
-            this.menuStrip2.TabIndex = 5;
-            this.menuStrip2.Text = "menuStrip2";
-            // 
-            // menuStrip3
-            // 
-            this.menuStrip3.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
-            this.menuStrip3.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.menuStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.quanrLysSinhVieneToolStripMenuItem,
-            this.quảnLýLớpHọcToolStripMenuItem1,
-            this.đăngXuấtToolStripMenuItem});
-            this.menuStrip3.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip3.Name = "menuStrip3";
-            this.menuStrip3.Size = new System.Drawing.Size(1412, 33);
-            this.menuStrip3.TabIndex = 6;
-            this.menuStrip3.Text = "menuStrip3";
-            // 
-            // quanrLysSinhVieneToolStripMenuItem
-            // 
-            this.quanrLysSinhVieneToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.quanrLysSinhVieneToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Black", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.quanrLysSinhVieneToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.quanrLysSinhVieneToolStripMenuItem.Name = "quanrLysSinhVieneToolStripMenuItem";
-            this.quanrLysSinhVieneToolStripMenuItem.Size = new System.Drawing.Size(180, 29);
-            this.quanrLysSinhVieneToolStripMenuItem.Text = "Quản lý sinh viên";
-            this.quanrLysSinhVieneToolStripMenuItem.Click += new System.EventHandler(this.quanrLysSinhVieneToolStripMenuItem_Click);
-            // 
-            // quảnLýLớpHọcToolStripMenuItem1
-            // 
-            this.quảnLýLớpHọcToolStripMenuItem1.Name = "quảnLýLớpHọcToolStripMenuItem1";
-            this.quảnLýLớpHọcToolStripMenuItem1.Size = new System.Drawing.Size(154, 29);
-            this.quảnLýLớpHọcToolStripMenuItem1.Text = "Quản lý lớp học";
-            // 
-            // đăngXuấtToolStripMenuItem
-            // 
-            this.đăngXuấtToolStripMenuItem.ForeColor = System.Drawing.Color.Red;
-            this.đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
-            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(109, 29);
-            this.đăngXuấtToolStripMenuItem.Text = "Đăng xuất";
-            this.đăngXuấtToolStripMenuItem.Click += new System.EventHandler(this.đăngXuấtToolStripMenuItem_Click);
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.button1.Location = new System.Drawing.Point(0, 656);
+            this.button1.Location = new System.Drawing.Point(0, 604);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(274, 63);
+            this.button1.Size = new System.Drawing.Size(244, 63);
             this.button1.TabIndex = 8;
             this.button1.Text = "Thêm";
             this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.button2.Location = new System.Drawing.Point(280, 656);
+            this.button2.Location = new System.Drawing.Point(249, 604);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(279, 63);
+            this.button2.Size = new System.Drawing.Size(248, 63);
             this.button2.TabIndex = 9;
             this.button2.Text = "Sửa";
             this.button2.UseVisualStyleBackColor = false;
@@ -259,20 +186,19 @@
             // button3
             // 
             this.button3.BackColor = System.Drawing.Color.Red;
-            this.button3.Location = new System.Drawing.Point(0, 725);
+            this.button3.Location = new System.Drawing.Point(0, 673);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(274, 63);
+            this.button3.Size = new System.Drawing.Size(244, 63);
             this.button3.TabIndex = 10;
             this.button3.Text = "Xóa";
             this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
             this.button4.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.button4.Location = new System.Drawing.Point(280, 725);
+            this.button4.Location = new System.Drawing.Point(249, 673);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(279, 63);
+            this.button4.Size = new System.Drawing.Size(248, 63);
             this.button4.TabIndex = 11;
             this.button4.Text = "Làm mới";
             this.button4.UseVisualStyleBackColor = false;
@@ -283,19 +209,18 @@
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.MSSV,
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4});
-            this.dataGridView1.Location = new System.Drawing.Point(590, 188);
+        this.MSSV,
+        this.Column1,
+        this.Column2,
+        this.Column3,
+        this.Column4});
+            this.dataGridView1.Location = new System.Drawing.Point(524, 136);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(810, 478);
+            this.dataGridView1.Size = new System.Drawing.Size(720, 478);
             this.dataGridView1.TabIndex = 12;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // MSSV
             // 
@@ -334,88 +259,82 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(590, 107);
+            this.textBox1.Location = new System.Drawing.Point(524, 55);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(473, 26);
+            this.textBox1.Size = new System.Drawing.Size(421, 27);
             this.textBox1.TabIndex = 13;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(586, 84);
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(521, 32);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(216, 20);
+            this.label3.Size = new System.Drawing.Size(193, 20);
             this.label3.TabIndex = 15;
             this.label3.Text = "Tìm kiếm (Tên/MSSV/Lớp)";
             // 
             // button5
             // 
             this.button5.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button5.Location = new System.Drawing.Point(1069, 99);
+            this.button5.Location = new System.Drawing.Point(950, 47);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(117, 43);
+            this.button5.Size = new System.Drawing.Size(104, 43);
             this.button5.TabIndex = 16;
             this.button5.Text = "Tìm";
             this.button5.UseVisualStyleBackColor = false;
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(774, 692);
+            this.button6.Location = new System.Drawing.Point(688, 640);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(70, 57);
+            this.button6.Size = new System.Drawing.Size(62, 57);
             this.button6.TabIndex = 17;
             this.button6.Text = "<<";
             this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
-            // 
+            //
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(839, 692);
+            this.button7.Location = new System.Drawing.Point(746, 640);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(70, 57);
+            this.button7.Size = new System.Drawing.Size(62, 57);
             this.button7.TabIndex = 18;
             this.button7.Text = "<";
             this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(942, 710);
+            this.label4.Location = new System.Drawing.Point(837, 658);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(154, 20);
+            this.label4.Size = new System.Drawing.Size(146, 20);
             this.label4.TabIndex = 19;
-            this.label4.Text = "Trang 1/1 | 3 bản ghi";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
+            this.label4.Text = "Trang 1/1 | 2 bản ghi";
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(1140, 692);
+            this.button8.Location = new System.Drawing.Point(1013, 640);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(70, 57);
+            this.button8.Size = new System.Drawing.Size(62, 57);
             this.button8.TabIndex = 20;
             this.button8.Text = ">";
             this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(1205, 692);
+            this.button9.Location = new System.Drawing.Point(1071, 640);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(70, 57);
+            this.button9.Size = new System.Drawing.Size(62, 57);
             this.button9.TabIndex = 21;
             this.button9.Text = ">>";
             this.button9.UseVisualStyleBackColor = true;
             // 
-            // Qlsv
+            // UC_QLSV
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1412, 830);
             this.Controls.Add(this.button9);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.label4);
@@ -430,17 +349,10 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.menuStrip2);
-            this.Controls.Add(this.menuStrip3);
-            this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Qlsv";
-            this.Text = "Qlsv";
-            this.Load += new System.EventHandler(this.Qlsv_Load);
+            this.Name = "UC_QLSV";
+            this.Size = new System.Drawing.Size(1255, 760);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.menuStrip3.ResumeLayout(false);
-            this.menuStrip3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -448,7 +360,11 @@
         }
 
         #endregion
+
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.TextBox txt_name;
         private System.Windows.Forms.TextBox txt_mssv;
@@ -456,15 +372,6 @@
         private System.Windows.Forms.Label lop;
         private System.Windows.Forms.Label hoten;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.MenuStrip menuStrip2;
-        private System.Windows.Forms.MenuStrip menuStrip3;
-        private System.Windows.Forms.ToolStripMenuItem quanrLysSinhVieneToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem quảnLýLớpHọcToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem đăngXuấtToolStripMenuItem;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
