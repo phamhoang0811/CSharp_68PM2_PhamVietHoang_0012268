@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using Microsoft.Data.SqlClient;
 namespace WindownForm_01
 {
     public partial class Login : Form
@@ -46,7 +46,6 @@ namespace WindownForm_01
         private void txt_dangnhap_Click(object sender, EventArgs e)
         {
           
-            // Kiểm tra tài khoản và mật khẩu
             if (txt_email.Text == "hoang@gmail.com" && txt_mssv.Text == "123456")
             {
 

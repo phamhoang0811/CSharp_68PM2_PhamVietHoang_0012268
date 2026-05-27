@@ -251,6 +251,7 @@
             this.colMaID.HeaderText = "Mã ID";
             this.colMaID.MinimumWidth = 6;
             this.colMaID.Name = "colMaID";
+            this.colMaID.Width = 150;
             // 
             // colMaLop
             // 
