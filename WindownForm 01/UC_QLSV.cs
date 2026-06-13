@@ -331,7 +331,37 @@ namespace WindownForm_01
         private void Button9_Click(object sender, EventArgs e) { currentPage = totalPages; LoadData(); }
 
 
-        
+        // =========================================================================
+        // CHỨC NĂNG 4: DATAGRIDVIEW CELLCLICKEVENT (CLICK CHỌN DÒNG)
+        // =========================================================================
+        private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Ràng buộc: Chỉ thao tác khi người dùng click vào dòng dữ liệu thật, bỏ qua dòng tiêu đề (có RowIndex = -1)
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+
+                // Đẩy ngược dữ liệu từ lưới lên các ô TextBox, ComboBox tương ứng
+                txt_mssv.Text = row.Cells[0].Value?.ToString() ?? "";
+                txt_name.Text = row.Cells[1].Value?.ToString() ?? "";
+                comboBox2.Text = row.Cells[2].Value?.ToString() ?? "";
+
+                // Dữ liệu ngày tháng lấy từ grid là dạng chuỗi, cần Parse về dạng DateTime chuẩn để gán vào DateTimePicker
+                if (row.Cells[3].Value != null && DateTime.TryParseExact(row.Cells[3].Value.ToString(), "dd/MM/yyyy", null, DateTimeStyles.None, out DateTime dob))
+                    dateTimePicker2.Value = dob;
+                else if (row.Cells[3].Value != null && DateTime.TryParse(row.Cells[3].Value.ToString(), out DateTime dobAlt))
+                    dateTimePicker2.Value = dobAlt;
+
+                comboBox3.Text = row.Cells[4].Value?.ToString() ?? "";
+
+                // QUAN TRỌNG: Lưu MSSV vừa chọn vào biến toàn cục. Biến này chính là chìa khóa để 2 hàm Update và Delete biết phải sửa/xóa ai.
+                mssvCu = txt_mssv.Text.Trim();
+
+                // Chặn không cho người dùng sửa ô nhập MSSV trên giao diện (vì đây là khóa chính database)
+                txt_mssv.ReadOnly = true;
+            }
+        }
+
 
         // Các hàm rỗng mặc định sinh ra bởi Visual Studio Designer
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e) { }
