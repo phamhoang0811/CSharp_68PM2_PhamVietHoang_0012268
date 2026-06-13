@@ -22,10 +22,10 @@ namespace WindownForm_01
             InitializeComponent();
 
             // Cấu hình các thuộc tính cơ bản cho bảng hiển thị dữ liệu (DataGridView)
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.ReadOnly = true;
-            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.MultiSelect = false;
+            dataGridView1.AllowUserToAddRows = false; 
+            dataGridView1.ReadOnly = true;            
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect; 
+            dataGridView1.MultiSelect = false;        
 
             LoadComboBox();
             LoadData();
@@ -93,7 +93,7 @@ namespace WindownForm_01
 
             cmd.Parameters.AddWithValue("@KeyMSSV", "%" + key + "%");
             // Lưu ý: "% " ở đây có khoảng trắng, nó sẽ chỉ tìm tên chứa " " + từ khóa. Bạn có thể cân nhắc đổi thành "%" + key + "%"
-            cmd.Parameters.AddWithValue("@KeyName", "% " + key + "%");
+            cmd.Parameters.AddWithValue("@KeyName", "% " + key + "%"); 
             cmd.Parameters.AddWithValue("@KeyExact", key);
         }
 
@@ -165,7 +165,7 @@ namespace WindownForm_01
                     if (currentPage > totalPages)
                     {
                         currentPage = totalPages;
-                        LoadData();
+                        LoadData(); 
                         return;
                     }
 
@@ -185,14 +185,37 @@ namespace WindownForm_01
             comboBox2.SelectedIndex = -1;
             comboBox3.SelectedIndex = -1;
             dateTimePicker2.Value = DateTime.Now;
-            txt_mssv.ReadOnly = false;
+            txt_mssv.ReadOnly = false; 
             mssvCu = "";
         }
 
         // Sự kiện nút Thêm 
         private void Button1_Click(object sender, EventArgs e)
         {
-            // ... (Đoạn này thêm dữ liệu như cũ, tôi giữ nguyên) ...
+            using (SqlConnection conn = DBconnect.GetConnection())
+            {
+                conn.Open();
+
+                string query = @"INSERT INTO Students
+                        (MSSV, FullName, DateOfBirth, Gender, ClassId)
+                        VALUES
+                        (@MSSV, @FullName, @DateOfBirth, @Gender, @ClassId)";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+
+                cmd.Parameters.AddWithValue("@MSSV", txt_mssv.Text.Trim());
+                cmd.Parameters.AddWithValue("@FullName", txt_name.Text.Trim());
+                cmd.Parameters.AddWithValue("@DateOfBirth", dateTimePicker2.Value);
+                cmd.Parameters.AddWithValue("@Gender", comboBox2.Text);
+                cmd.Parameters.AddWithValue("@ClassId", comboBox3.Text);
+
+                cmd.ExecuteNonQuery();
+            }
+
+            LoadData();
+            ClearData();
+
+            MessageBox.Show("Thêm sinh viên thành công!");
         }
 
         // =========================================================================
@@ -225,14 +248,14 @@ namespace WindownForm_01
                     SqlCommand cmd = new SqlCommand(query, conn);
 
                     // Truyền Parameter để tránh lỗi ký tự đặc biệt và SQL Injection
-                    cmd.Parameters.AddWithValue("@MSSV", mssvCu);
+                    cmd.Parameters.AddWithValue("@MSSV", mssvCu); 
                     cmd.Parameters.AddWithValue("@FullName", txt_name.Text.Trim());
                     cmd.Parameters.AddWithValue("@DateOfBirth", dateTimePicker2.Value);
                     cmd.Parameters.AddWithValue("@Gender", comboBox2.Text);
                     cmd.Parameters.AddWithValue("@ClassId", comboBox3.Text);
 
                     // Lấy số lượng dòng bị ảnh hưởng bởi câu lệnh UPDATE
-                    int rows = cmd.ExecuteNonQuery();
+                    int rows = cmd.ExecuteNonQuery(); 
 
                     if (rows > 0)
                     {
@@ -318,7 +341,7 @@ namespace WindownForm_01
         private void Button5_Click(object sender, EventArgs e)
         {
             currentPage = 1; // Khi tìm kiếm từ khóa mới, bắt buộc phải nhảy về trang 1
-            LoadData();
+            LoadData();      
         }
 
         // Nút Trang đầu
