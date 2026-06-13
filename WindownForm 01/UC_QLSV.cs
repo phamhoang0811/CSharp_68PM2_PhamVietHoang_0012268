@@ -254,7 +254,84 @@ namespace WindownForm_01
             }
         }
 
-       
+        // =========================================================================
+        // CHỨC NĂNG 3: DELETE (XÓA)
+        // =========================================================================
+        private void Button3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Kiểm tra xem người dùng đã chọn sinh viên trên lưới chưa
+                if (string.IsNullOrEmpty(mssvCu))
+                {
+                    MessageBox.Show("Vui lòng chọn sinh viên cần xóa!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Xác nhận với người dùng để tránh bấm nhầm nút Xóa
+                DialogResult confirm = MessageBox.Show(
+                    "Bạn có chắc muốn xóa sinh viên có MSSV " + mssvCu + "?", "Xác nhận xóa",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (confirm != DialogResult.Yes)
+                {
+                    return; // Hủy thao tác nếu người dùng bấm 'No'
+                }
+
+                using (SqlConnection conn = DBconnect.GetConnection())
+                {
+                    conn.Open();
+
+                    // Thực thi lệnh xóa theo Khóa chính (MSSV)
+                    string query = "DELETE FROM Students WHERE MSSV = @MSSV";
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@MSSV", mssvCu);
+
+                    int rows = cmd.ExecuteNonQuery();
+                    if (rows > 0)
+                    {
+                        MessageBox.Show("Xóa sinh viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không tìm thấy sinh viên cần xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+
+                ClearData();
+                LoadData();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi xóa sinh viên: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void Button4_Click(object sender, EventArgs e)
+        {
+            ClearData();
+        }
+
+        // =========================================================================
+        // CHỨC NĂNG 1.2: CÁC NÚT ĐIỀU HƯỚNG TÌM KIẾM & PHÂN TRANG
+        // =========================================================================
+        private void Button5_Click(object sender, EventArgs e)
+        {
+            currentPage = 1; // Khi tìm kiếm từ khóa mới, bắt buộc phải nhảy về trang 1
+            LoadData();
+        }
+
+        // Nút Trang đầu
+        private void Button6_Click(object sender, EventArgs e) { currentPage = 1; LoadData(); }
+        // Nút Trang trước (giảm trang hiện tại đi 1, với điều kiện trang hiện tại > 1)
+        private void Button7_Click(object sender, EventArgs e) { if (currentPage > 1) { currentPage--; LoadData(); } }
+        // Nút Trang sau (tăng trang hiện tại lên 1, với điều kiện chưa vượt qua tổng số trang)
+        private void Button8_Click(object sender, EventArgs e) { if (currentPage < totalPages) { currentPage++; LoadData(); } }
+        // Nút Trang cuối
+        private void Button9_Click(object sender, EventArgs e) { currentPage = totalPages; LoadData(); }
+
+
+        
 
         // Các hàm rỗng mặc định sinh ra bởi Visual Studio Designer
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e) { }
