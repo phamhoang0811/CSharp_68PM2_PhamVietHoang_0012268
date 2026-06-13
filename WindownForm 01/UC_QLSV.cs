@@ -195,7 +195,64 @@ namespace WindownForm_01
             // ... (Đoạn này thêm dữ liệu như cũ, tôi giữ nguyên) ...
         }
 
-        /
+        // =========================================================================
+        // CHỨC NĂNG 2: UPDATE (CẬP NHẬT/SỬA)
+        // =========================================================================
+        private void Button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Ràng buộc: Bắt buộc chọn sinh viên (đã click lên grid và lưu mssvCu) trước khi bấm Sửa
+                if (string.IsNullOrEmpty(mssvCu))
+                {
+                    MessageBox.Show("Vui lòng chọn sinh viên cần sửa!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                using (SqlConnection conn = DBconnect.GetConnection())
+                {
+                    conn.Open();
+
+                    // Cập nhật dữ liệu dựa trên WHERE MSSV cũ (vì không được phép thay đổi Khóa chính)
+                    string query = @"
+                UPDATE Students
+                SET FullName = @FullName,
+                    DateOfBirth = @DateOfBirth,
+                    Gender = @Gender,
+                    ClassId = @ClassId
+                WHERE MSSV = @MSSV";
+
+                    SqlCommand cmd = new SqlCommand(query, conn);
+
+                    // Truyền Parameter để tránh lỗi ký tự đặc biệt và SQL Injection
+                    cmd.Parameters.AddWithValue("@MSSV", mssvCu);
+                    cmd.Parameters.AddWithValue("@FullName", txt_name.Text.Trim());
+                    cmd.Parameters.AddWithValue("@DateOfBirth", dateTimePicker2.Value);
+                    cmd.Parameters.AddWithValue("@Gender", comboBox2.Text);
+                    cmd.Parameters.AddWithValue("@ClassId", comboBox3.Text);
+
+                    // Lấy số lượng dòng bị ảnh hưởng bởi câu lệnh UPDATE
+                    int rows = cmd.ExecuteNonQuery();
+
+                    if (rows > 0)
+                    {
+                        MessageBox.Show("Cập nhật sinh viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không tìm thấy sinh viên cần cập nhật!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+
+                // Cập nhật lại Grid và xóa form nhập liệu
+                LoadData();
+                ClearData();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi cập nhật: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
        
 
