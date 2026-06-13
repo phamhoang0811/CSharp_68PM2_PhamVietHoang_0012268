@@ -243,7 +243,7 @@
             this.dgvLopHoc.RowHeadersVisible = false;
             this.dgvLopHoc.RowHeadersWidth = 51;
             this.dgvLopHoc.RowTemplate.Height = 29;
-            this.dgvLopHoc.Size = new System.Drawing.Size(731, 400);
+            this.dgvLopHoc.Size = new System.Drawing.Size(861, 400);
             this.dgvLopHoc.TabIndex = 9;
             // 
             // colMaID
@@ -295,7 +295,7 @@
             // lblPhanTrang
             // 
             this.lblPhanTrang.AutoSize = true;
-            this.lblPhanTrang.Location = new System.Drawing.Point(675, 520);
+            this.lblPhanTrang.Location = new System.Drawing.Point(778, 525);
             this.lblPhanTrang.Name = "lblPhanTrang";
             this.lblPhanTrang.Size = new System.Drawing.Size(154, 20);
             this.lblPhanTrang.TabIndex = 12;
@@ -303,7 +303,7 @@
             // 
             // btnNext
             // 
-            this.btnNext.Location = new System.Drawing.Point(1001, 515);
+            this.btnNext.Location = new System.Drawing.Point(1148, 520);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(56, 30);
             this.btnNext.TabIndex = 13;
@@ -312,12 +312,13 @@
             // 
             // btnLast
             // 
-            this.btnLast.Location = new System.Drawing.Point(1069, 515);
+            this.btnLast.Location = new System.Drawing.Point(1210, 520);
             this.btnLast.Name = "btnLast";
             this.btnLast.Size = new System.Drawing.Size(56, 30);
             this.btnLast.TabIndex = 14;
             this.btnLast.Text = ">>";
             this.btnLast.UseVisualStyleBackColor = true;
+            this.btnLast.Click += new System.EventHandler(this.btnLast_Click_1);
             // 
             // UC_QLLH
             // 
@@ -340,7 +341,7 @@
             this.Controls.Add(this.btnThem);
             this.Controls.Add(this.groupBox1);
             this.Name = "UC_QLLH";
-            this.Size = new System.Drawing.Size(1226, 678);
+            this.Size = new System.Drawing.Size(1389, 678);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLopHoc)).EndInit();
