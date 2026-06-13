@@ -1,4 +1,4 @@
-﻿using System.Data.SqlClient;
+﻿using Microsoft.Data.SqlClient;
 
 namespace WindownForm_01
 {
@@ -10,7 +10,8 @@ namespace WindownForm_01
             @"Server=LAPTOP-A207SSPP\SQLEXPRESS05;
             Database=QLSinhVienCSharp;
             User Id=hoang;
-            Password=123456Aa@;";
+            Password=123456Aa@;
+            TrustServerCertificate=True;";
 
             return new SqlConnection(connStr);
         }
