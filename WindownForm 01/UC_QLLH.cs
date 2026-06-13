@@ -18,12 +18,18 @@ namespace WindownForm_01
         {
             InitializeComponent();
 
+            // Đăng ký sự kiện trực tiếp trong code để đồng bộ với Designer
+            btnThem.Click += BtnThem_Click;
+            btnSua.Click += BtnSua_Click;
+            btnXoa.Click += BtnXoa_Click;
+            btnLamMoi.Click += BtnLamMoi_Click;
             btnXemDSSV.Click += BtnXemDSSV_Click;
             btnTim.Click += BtnTim_Click;
             btnFirst.Click += BtnFirst_Click;
             btnPrev.Click += BtnPrev_Click;
             btnNext.Click += BtnNext_Click;
             btnLast.Click += BtnLast_Click;
+            dgvLopHoc.CellClick += DgvLopHoc_CellClick;
 
             // Cấu hình DataGridView
             dgvLopHoc.AllowUserToAddRows = false;
@@ -123,7 +129,122 @@ namespace WindownForm_01
             txtMaID.ReadOnly = false;
             classIdCu = "";
         }
-       
+        // =====================================================================
+        //  CHỨC NĂNG THÊM LỚP HỌC (INSERT)
+        // =====================================================================
+        private void BtnThem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (SqlConnection conn = DBconnect.GetConnection())
+                {
+                    conn.Open();
+                    string query = @"INSERT INTO Classes (ClassId, ClassCode, ClassName, Note) 
+                                     VALUES (@Id, @Code, @Name, @Note)";
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@Id", txtMaID.Text.Trim());
+                    cmd.Parameters.AddWithValue("@Code", txtMaLop.Text.Trim());
+                    cmd.Parameters.AddWithValue("@Name", txtTenLop.Text.Trim());
+                    cmd.Parameters.AddWithValue("@Note", txtGhiChu.Text.Trim());
+
+                    cmd.ExecuteNonQuery();
+                }
+                LoadData();
+                ClearData();
+                MessageBox.Show("Thêm lớp học thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex) { MessageBox.Show("Lỗi thêm dữ liệu: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+        }
+
+        // =====================================================================
+        //  ĐÂY LÀ CHỨC NĂNG SỬA LỚP HỌC (UPDATE)
+        // =====================================================================
+        private void BtnSua_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(classIdCu))
+            {
+                MessageBox.Show("Vui lòng chọn lớp để sửa!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            try
+            {
+                using (SqlConnection conn = DBconnect.GetConnection())
+                {
+                    conn.Open();
+                    string query = @"UPDATE Classes SET ClassCode=@Code, ClassName=@Name, Note=@Note WHERE ClassId=@Id";
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@Id", classIdCu);
+                    cmd.Parameters.AddWithValue("@Code", txtMaLop.Text.Trim());
+                    cmd.Parameters.AddWithValue("@Name", txtTenLop.Text.Trim());
+                    cmd.Parameters.AddWithValue("@Note", txtGhiChu.Text.Trim());
+
+                    cmd.ExecuteNonQuery();
+                }
+                LoadData();
+                ClearData();
+                MessageBox.Show("Sửa thông tin lớp học thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex) { MessageBox.Show("Lỗi sửa dữ liệu: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+        }
+
+        // =====================================================================
+        // ĐÂY LÀ CHỨC NĂNG XÓA LỚP HỌC (DELETE)
+        // =====================================================================
+        private void BtnXoa_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(classIdCu))
+            {
+                MessageBox.Show("Vui lòng chọn lớp để xóa!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (MessageBox.Show($"Bạn có chắc chắn muốn xóa lớp ID: {classIdCu}?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                try
+                {
+                    using (SqlConnection conn = DBconnect.GetConnection())
+                    {
+                        conn.Open();
+                        string query = "DELETE FROM Classes WHERE ClassId=@Id";
+                        SqlCommand cmd = new SqlCommand(query, conn);
+                        cmd.Parameters.AddWithValue("@Id", classIdCu);
+                        cmd.ExecuteNonQuery();
+                    }
+                    LoadData();
+                    ClearData();
+                    MessageBox.Show("Xóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (SqlException sqlex)
+                {
+                    if (sqlex.Number == 547)
+                        MessageBox.Show("Không thể xóa lớp này vì hiện tại đang có sinh viên thuộc lớp!", "Lỗi ràng buộc", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    else
+                        MessageBox.Show("Lỗi CSDL: " + sqlex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void BtnLamMoi_Click(object sender, EventArgs e)
+        {
+            ClearData();
+            LoadData();
+        }
+
+        private void DgvLopHoc_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dgvLopHoc.Rows[e.RowIndex];
+
+                txtMaID.Text = row.Cells[0].Value?.ToString() ?? "";
+                txtMaLop.Text = row.Cells[1].Value?.ToString() ?? "";
+                txtTenLop.Text = row.Cells[2].Value?.ToString() ?? "";
+                txtGhiChu.Text = row.Cells[3].Value?.ToString() ?? "";
+
+                classIdCu = txtMaID.Text.Trim();
+                txtMaID.ReadOnly = true;
+            }
+        }
 
         //HIỂN THỊ DANH SÁCH SINH VIÊN THEO LỚP
         private void BtnXemDSSV_Click(object sender, EventArgs e)
